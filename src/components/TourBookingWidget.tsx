@@ -46,7 +46,7 @@ const TourBookingWidget = ({
     <Card className="sticky top-6 shadow-card animate-fade-in">
       <CardHeader>
         <CardTitle className="text-xl font-semibold text-foreground">Book This Tour</CardTitle>
-        <div className="space-y-2">
+        <div className="space-y-3">
           <div className="text-2xl font-bold text-primary">
             {formatCurrency(basePrice)}
             <span className="text-base font-normal text-muted-foreground"> per person</span>
@@ -54,22 +54,47 @@ const TourBookingWidget = ({
           <div className="text-xs text-muted-foreground">
             Starting price for 11+ people
           </div>
+          
+          {/* Enhanced Pricing Tiers Display */}
           <Collapsible open={showPricingTiers} onOpenChange={setShowPricingTiers}>
             <CollapsibleTrigger asChild>
-              <Button variant="ghost" size="sm" className="p-0 h-auto text-xs text-primary">
+              <Button variant="ghost" size="sm" className="p-0 h-auto text-xs text-primary hover:text-primary/80">
                 <Eye className="h-3 w-3 mr-1" />
                 View all pricing tiers
               </Button>
             </CollapsibleTrigger>
-            <CollapsibleContent className="space-y-2 mt-2">
-              <div className="text-xs font-medium text-foreground">Group Size Pricing:</div>
-              <div className="space-y-1 text-xs">
-                {pricingTiers.map((tier, index) => (
-                  <div key={index} className="flex justify-between">
-                    <span className="text-muted-foreground">{tier.groupSize}</span>
-                    <span className="font-medium">{formatCurrency(tier.pricePerPerson)}</span>
-                  </div>
-                ))}
+            <CollapsibleContent className="space-y-3 mt-3">
+              <div className="text-xs font-medium text-foreground border-b pb-2">Group Size Pricing:</div>
+              <div className="space-y-2">
+                {pricingTiers.map((tier, index) => {
+                  const isCurrentTier = 
+                    (tier.groupSize === "1 person" && travelers === 1) ||
+                    (tier.groupSize === "2 people" && travelers === 2) ||
+                    (tier.groupSize === "3 people" && travelers === 3) ||
+                    (tier.groupSize === "4-5 people" && travelers >= 4 && travelers <= 5) ||
+                    (tier.groupSize === "6-7 people" && travelers >= 6 && travelers <= 7) ||
+                    (tier.groupSize === "8-10 people" && travelers >= 8 && travelers <= 10) ||
+                    (tier.groupSize === "11+ people" && travelers >= 11);
+                  
+                  return (
+                    <div 
+                      key={index} 
+                      className={`flex justify-between p-2 rounded-md transition-colors ${
+                        isCurrentTier ? 'bg-primary/10 border border-primary/20' : 'bg-muted/30'
+                      }`}
+                    >
+                      <span className={`text-xs ${isCurrentTier ? 'font-medium text-primary' : 'text-muted-foreground'}`}>
+                        {tier.groupSize}
+                      </span>
+                      <span className={`text-xs font-medium ${isCurrentTier ? 'text-primary' : 'text-foreground'}`}>
+                        {formatCurrency(tier.pricePerPerson)}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="text-xs text-muted-foreground pt-2 border-t">
+                💡 Larger groups save more per person
               </div>
             </CollapsibleContent>
           </Collapsible>

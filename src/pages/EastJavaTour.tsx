@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import TourHero from "@/components/TourHero";
 import TourBookingWidget from "@/components/TourBookingWidget";
 import TourInfoCard from "@/components/TourInfoCard";
@@ -6,13 +6,20 @@ import ItineraryCard from "@/components/ItineraryCard";
 import InclusionsCard from "@/components/InclusionsCard";
 import ReviewsSection from "@/components/ReviewsSection";
 import RatingDisplay from "@/components/RatingDisplay";
+import MobileStickyFooter from "@/components/MobileStickyFooter";
+import TourMap from "@/components/TourMap";
+import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const EastJavaTour = () => {
   const [selectedDate, setSelectedDate] = useState<Date>();
   const [travelers, setTravelers] = useState(2);
+  const isMobile = useIsMobile();
+  const bookingWidgetRef = useRef<HTMLDivElement>(null);
 
   const tourData = {
     id: "SUB-5D4N-001",
@@ -138,6 +145,35 @@ Throughout the tour, enjoy comfortable accommodations, private transportation, a
           "Transfer to airport/station (if needed)"
         ]
       }
+    ],
+    
+    // Tour locations for map
+    locations: [
+      {
+        name: "Surabaya (Starting Point)",
+        coordinates: [112.7521, -7.2575] as [number, number],
+        description: "Pick-up location and departure point"
+      },
+      {
+        name: "Ijen Crater",
+        coordinates: [114.2421, -8.0587] as [number, number],
+        description: "Famous blue fire crater and turquoise lake"
+      },
+      {
+        name: "Papuma Beach",
+        coordinates: [113.8067, -8.3103] as [number, number],
+        description: "Beautiful white sand beach for relaxation"
+      },
+      {
+        name: "Tumpak Sewu Waterfall",
+        coordinates: [112.9204, -8.2594] as [number, number],
+        description: "Spectacular multi-tiered waterfall"
+      },
+      {
+        name: "Mount Bromo",
+        coordinates: [112.9346, -7.9425] as [number, number],
+        description: "Iconic volcano with amazing sunrise views"
+      }
     ]
   };
 
@@ -155,8 +191,28 @@ Throughout the tour, enjoy comfortable accommodations, private transportation, a
     return tier ? tier.pricePerPerson : tourData.basePrice;
   };
 
+  const handleMobileBookingClick = () => {
+    bookingWidgetRef.current?.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      {/* SEO Head Component */}
+      <SEOHead
+        title={tourData.title}
+        description={tourData.description}
+        price={tourData.basePrice}
+        currency={tourData.currency}
+        rating={tourData.rating || 4.8}
+        reviewCount={tourData.reviewCount || 127}
+        location={tourData.location}
+        duration={tourData.duration}
+        operatorName={tourData.operatorName}
+        images={tourData.images}
+      />
       {/* Navigation Header */}
       <div className="bg-card border-b sticky top-0 z-50">
         <div className="container mx-auto px-4 py-3">
@@ -203,62 +259,134 @@ Throughout the tour, enjoy comfortable accommodations, private transportation, a
               highlights={tourData.highlights}
             />
 
-            {/* Itinerary */}
-            <ItineraryCard stops={tourData.itinerary} />
-
-            {/* Inclusions */}
-            <InclusionsCard
-              included={tourData.included}
-              notIncluded={tourData.notIncluded}
+            {/* Tour Map */}
+            <TourMap 
+              locations={tourData.locations} 
+              title="East Java Tour Route"
             />
 
-            {/* Reviews Section */}
-            <ReviewsSection
-              averageRating={4.8}
-              totalReviews={127}
-              ratingDistribution={{ 5: 89, 4: 25, 3: 8, 2: 3, 1: 2 }}
-              reviews={[
-                {
-                  id: "1",
-                  author: "Sarah M.",
-                  rating: 5,
-                  date: "2 weeks ago",
-                  title: "Absolutely incredible experience!",
-                  content: "The blue flames at Ijen were magical, and Mount Bromo sunrise was breathtaking. Our guide was knowledgeable and the accommodations were comfortable.",
-                  helpful: 12,
-                  verified: true
-                },
-                {
-                  id: "2", 
-                  author: "Mike T.",
-                  rating: 5,
-                  date: "1 month ago",
-                  title: "Perfect East Java adventure",
-                  content: "Everything was well organized. Tumpak Sewu waterfall was stunning and Papuma Beach was a great relaxing stop. Highly recommend this tour!",
-                  helpful: 8,
-                  verified: true
-                }
-              ]}
-            />
+            {/* Mobile Accordion Layout for key sections */}
+            {isMobile ? (
+              <Accordion type="multiple" className="w-full space-y-4">
+                <AccordionItem value="itinerary" className="border rounded-lg">
+                  <AccordionTrigger className="px-4 py-3 hover:no-underline">
+                    <span className="font-semibold">📅 Day-by-Day Itinerary</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-4 pb-4">
+                    <ItineraryCard stops={tourData.itinerary} />
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="inclusions" className="border rounded-lg">
+                  <AccordionTrigger className="px-4 py-3 hover:no-underline">
+                    <span className="font-semibold">✅ What's Included & Not Included</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-4 pb-4">
+                    <InclusionsCard
+                      included={tourData.included}
+                      notIncluded={tourData.notIncluded}
+                    />
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="reviews" className="border rounded-lg">
+                  <AccordionTrigger className="px-4 py-3 hover:no-underline">
+                    <span className="font-semibold">⭐ Reviews & Ratings</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-4 pb-4">
+                    <ReviewsSection
+                      averageRating={4.8}
+                      totalReviews={127}
+                      ratingDistribution={{ 5: 89, 4: 25, 3: 8, 2: 3, 1: 2 }}
+                      reviews={[
+                        {
+                          id: "1",
+                          author: "Sarah M.",
+                          rating: 5,
+                          date: "2 weeks ago",
+                          title: "Absolutely incredible experience!",
+                          content: "The blue flames at Ijen were magical, and Mount Bromo sunrise was breathtaking. Our guide was knowledgeable and the accommodations were comfortable.",
+                          helpful: 12,
+                          verified: true
+                        },
+                        {
+                          id: "2", 
+                          author: "Mike T.",
+                          rating: 5,
+                          date: "1 month ago",
+                          title: "Perfect East Java adventure",
+                          content: "Everything was well organized. Tumpak Sewu waterfall was stunning and Papuma Beach was a great relaxing stop. Highly recommend this tour!",
+                          helpful: 8,
+                          verified: true
+                        }
+                      ]}
+                    />
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            ) : (
+              <>
+                {/* Desktop Layout - Full sections */}
+                <ItineraryCard stops={tourData.itinerary} />
+                <InclusionsCard
+                  included={tourData.included}
+                  notIncluded={tourData.notIncluded}
+                />
+                <ReviewsSection
+                  averageRating={4.8}
+                  totalReviews={127}
+                  ratingDistribution={{ 5: 89, 4: 25, 3: 8, 2: 3, 1: 2 }}
+                  reviews={[
+                    {
+                      id: "1",
+                      author: "Sarah M.",
+                      rating: 5,
+                      date: "2 weeks ago",
+                      title: "Absolutely incredible experience!",
+                      content: "The blue flames at Ijen were magical, and Mount Bromo sunrise was breathtaking. Our guide was knowledgeable and the accommodations were comfortable.",
+                      helpful: 12,
+                      verified: true
+                    },
+                    {
+                      id: "2", 
+                      author: "Mike T.",
+                      rating: 5,
+                      date: "1 month ago",
+                      title: "Perfect East Java adventure",
+                      content: "Everything was well organized. Tumpak Sewu waterfall was stunning and Papuma Beach was a great relaxing stop. Highly recommend this tour!",
+                      helpful: 8,
+                      verified: true
+                    }
+                  ]}
+                />
+              </>
+            )}
           </div>
 
           {/* Right Column - Booking Widget */}
           <div className="lg:col-span-1">
-            <div className="sticky top-24">
-            <TourBookingWidget
-              basePrice={calculatePrice(travelers)}
-              currency={tourData.currency}
-              pricingTiers={tourData.pricingTiers}
-              selectedDate={selectedDate}
-              onDateChange={setSelectedDate}
-              travelers={travelers}
-              onTravelersChange={setTravelers}
-              calculatePrice={calculatePrice}
-            />
+            <div className="sticky top-24" ref={bookingWidgetRef}>
+              <TourBookingWidget
+                basePrice={calculatePrice(travelers)}
+                currency={tourData.currency}
+                pricingTiers={tourData.pricingTiers}
+                selectedDate={selectedDate}
+                onDateChange={setSelectedDate}
+                travelers={travelers}
+                onTravelersChange={setTravelers}
+                calculatePrice={calculatePrice}
+              />
             </div>
           </div>
         </div>
       </div>
+
+      {/* Mobile Sticky Footer */}
+      <MobileStickyFooter
+        price={calculatePrice(travelers)}
+        currency={tourData.currency}
+        onBookingClick={handleMobileBookingClick}
+      />
     </div>
   );
 };
