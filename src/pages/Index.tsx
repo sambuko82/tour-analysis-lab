@@ -7,7 +7,9 @@ import InclusionsCard from "@/components/InclusionsCard";
 import ItineraryCard from "@/components/ItineraryCard";
 import ReviewsSection from "@/components/ReviewsSection";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { MapPin, Phone, Mail, Clock, Users, Shield } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { MapPin, Phone, Mail, Clock, Users, Shield, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { 
   Accordion,
   AccordionContent,
@@ -191,6 +193,49 @@ const Index = () => {
             />
           </div>
         </div>
+
+        {/* Featured Tours Section */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold text-foreground mb-6">Other Popular Tours</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Card className="shadow-card hover-scale animate-fade-in">
+              <div className="relative h-48 overflow-hidden rounded-t-lg">
+                <img
+                  src="/src/assets/french-coast-hero.jpg"
+                  alt="East Java Tour"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute top-3 left-3">
+                  <span className="bg-primary text-primary-foreground px-2 py-1 rounded text-xs font-medium">
+                    5D4N Adventure
+                  </span>
+                </div>
+              </div>
+              <CardContent className="p-4">
+                <h3 className="font-semibold text-foreground mb-2">
+                  Ultimate East Java Experience
+                </h3>
+                <p className="text-sm text-muted-foreground mb-3">
+                  Ijen Crater, Tumpak Sewu & Bromo
+                </p>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center space-x-1 text-sm text-muted-foreground">
+                    <MapPin className="h-4 w-4" />
+                    <span>East Java, Indonesia</span>
+                  </div>
+                  <div className="text-lg font-bold text-primary">
+                    IDR 3,600,000
+                  </div>
+                </div>
+                <Link to="/tour/east-java">
+                  <Button className="w-full" size="sm">
+                    View Tour <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
 
         {/* Below-the-fold Content */}
         <div className="space-y-12">
