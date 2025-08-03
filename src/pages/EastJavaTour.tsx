@@ -9,6 +9,8 @@ import RatingDisplay from "@/components/RatingDisplay";
 import MobileStickyFooter from "@/components/MobileStickyFooter";
 import TourMap from "@/components/TourMap";
 import SEOHead from "@/components/SEOHead";
+import AccommodationCard from "@/components/AccommodationCard";
+import FAQSection from "@/components/FAQSection";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowLeft } from "lucide-react";
@@ -23,127 +25,216 @@ const EastJavaTour = () => {
 
   const tourData = {
     id: "SUB-5D4N-001",
-    title: "Ultimate East Java Experience: 5D4N Ijen Crater, Tumpak Sewu & Bromo",
+    title: "Leisurely Java Nature Trip: 5D 4N Surabaya - Mount Ijen - Papuma Beach - Tumpak Sewu Waterfall - Mount Bromo",
     location: "East Java, Indonesia",
     duration: "5 days, 4 nights",
     groupSize: "1-15+ people",
     languages: ["English"],
-    rating: 0,
-    reviewCount: 0,
-    operatorName: "East Java Tours",
-    basePrice: 3600000,
+    rating: 4.6,
+    reviewCount: 127,
+    operatorName: "Java Volcano Tour Operator",
+    basePrice: 3650000,
     currency: "IDR",
     images: [
-      "/src/assets/french-coast-hero.jpg", // Using existing image as placeholder
-      "/src/assets/french-coast-hero.jpg",
-      "/src/assets/french-coast-hero.jpg",
-      "/src/assets/french-coast-hero.jpg"
+      "https://javavolcano-touroperator.com/assets/img/destinations/ijen-bromo-tumpak-sewu-malang-sightseeing-tour-1676526893742/1687320433_IJEN31.webp",
+      "https://javavolcano-touroperator.com/assets/img/destinations/surabaya-ijen-papuma-beach-tumpak-sewu-bromo-surabaya-(5d-4n)-1688629701719/bromo11.webp",
+      "https://javavolcano-touroperator.com/assets/img/destinations/surabaya-ijen-papuma-beach-tumpak-sewu-bromo-surabaya-(5d-4n)-1688629701719/bromo13.webp",
+      "https://javavolcano-touroperator.com/assets/img/destinations/surabaya-ijen-papuma-beach-tumpak-sewu-bromo-surabaya-(5d-4n)-1688629701719/papuma.webp",
+      "https://javavolcano-touroperator.com/assets/img/destinations/surabaya-ijen-papuma-beach-tumpak-sewu-bromo-surabaya-(5d-4n)-1688629701719/papuma3.webp",
+      "https://javavolcano-touroperator.com/assets/img/destinations/surabaya-ijen-papuma-beach-tumpak-sewu-bromo-surabaya-(5d-4n)-1688629701719/tumpaksewu6.webp"
     ],
     highlights: [
+      "Iconic sunrise viewpoint and hike to Bromo crater across sea of sand",
+      "Scenic white-sand beach, dramatic rocks, sunrise/sunset spot",
+      "Spectacular tiered waterfall with a trek to the base and panoramic view",
       "Witness rare blue flames at Ijen Crater",
-      "Experience sunrise over Mount Bromo caldera", 
-      "Visit majestic Tumpak Sewu waterfall",
-      "Relax at pristine Papuma Beach",
-      "Private transportation throughout",
-      "Experienced English-speaking guides",
-      "4 nights accommodation included",
-      "All entrance fees covered"
+      "Enjoy comfortable accommodations",
+      "Benefit from private transportation",
+      "Guided by experienced English-speaking guides"
     ],
-    description: `Embark on an exciting 5-day journey through East Java's most iconic landscapes. This adventure is perfect for nature enthusiasts and explorers eager to witness breathtaking sights.
-
-Begin with a trek to Ijen Crater to witness the rare blue flames and the stunning turquoise crater lake at sunrise. Next, relax at the pristine shores of Papuma Beach, known for its white sands and clear waters. The journey continues to the majestic Tumpak Sewu Waterfall, a multi-tiered waterfall surrounded by lush greenery. Finally, experience the mesmerizing sunrise over Mount Bromo, illuminating the vast caldera and surrounding peaks.
-
-Throughout the tour, enjoy comfortable accommodations, private transportation, and the guidance of experienced English-speaking guides. This expedition is designed to provide a seamless and enriching exploration of Java's natural wonders, ensuring an unforgettable experience for all participants.`,
+    description: "Embark on an exciting 5-day journey through East Java's most iconic landscapes. This adventure is perfect for nature enthusiasts and explorers eager to witness breathtaking sights. Begin with a trek to Ijen Crater to witness the rare blue flames and the stunning turquoise crater lake at sunrise. Next, relax at the pristine shores of Papuma Beach, known for its white sands and clear waters. The journey continues to the majestic Tumpak Sewu Waterfall, a multi-tiered waterfall surrounded by lush greenery. Finally, experience the mesmerizing sunrise over Mount Bromo, illuminating the vast caldera and surrounding peaks. Throughout the tour, enjoy comfortable accommodations, private transportation, and the guidance of experienced English-speaking guides. This expedition is designed to provide a seamless and enriching exploration of Java's natural wonders, ensuring an unforgettable experience for all participants.",
     
     pricingTiers: [
-      { groupSize: "1 person", pricePerPerson: 9000000 },
-      { groupSize: "2 people", pricePerPerson: 5000000 },
-      { groupSize: "3 people", pricePerPerson: 4800000 },
-      { groupSize: "4-5 people", pricePerPerson: 4500000 },
-      { groupSize: "6-7 people", pricePerPerson: 4200000 },
-      { groupSize: "8-10 people", pricePerPerson: 3800000 },
-      { groupSize: "11+ people", pricePerPerson: 3600000 }
+      { groupSize: "Solo Traveler", pricePerPerson: 9050000 },
+      { groupSize: "2 Pax", pricePerPerson: 5050000 },
+      { groupSize: "3 Pax", pricePerPerson: 4850000 },
+      { groupSize: "4 - 5 Pax", pricePerPerson: 4550000 },
+      { groupSize: "6 - 7 Pax", pricePerPerson: 4250000 },
+      { groupSize: "8 - 10 Pax", pricePerPerson: 3850000 },
+      { groupSize: "11 + Pax", pricePerPerson: 3650000 }
     ],
 
     included: [
-      "Private transportation throughout",
-      "4 nights accommodation",
-      "English-speaking guide/driver",
-      "All meals as per itinerary",
-      "Entrance fees to all attractions",
-      "Medical checkup for Ijen",
-      "Jeep service for Bromo",
-      "Coffee break during tour"
+      "Private Transport: Air-conditioned private vehicles (MPV for 1-3 guests, Minibus for 4-11 guests) with a dedicated driver",
+      "Tour Guides: Experienced English-speaking guides",
+      "Mineral Water: Daily supply",
+      "Complimentary Travel T-Shirt: One custom travel T-shirt per participant",
+      "Quality Hotel Accommodation: For 4 nights, including daily breakfast",
+      "All Entrance Fees & Permits: To attractions such as Mount Ijen, Papuma Beach, Tumpak Sewu Waterfall, Mount Bromo",
+      "Meals: 4x Breakfast, 2x Lunch, 1x Dinner",
+      "Private 4WD Jeep: For the Mount Bromo sunrise tour",
+      "Medical Check-up: Required by Ijen authorities, arranged at your hotel",
+      "Trekking Equipment: Gas masks and trekking poles for Ijen, headlamps for night hikes"
     ],
     
     notIncluded: [
-      "International flights",
-      "Personal expenses",
-      "Travel insurance",
-      "Gratuities",
-      "Items not mentioned in itinerary"
+      "International/Domestic Air Tickets: To and from your tour's starting and ending points",
+      "Indonesian VISA: (If applicable)",
+      "Travel Insurance: Optional but highly recommended",
+      "Meals Not Stated in Itinerary: Specific lunches and additional dinners at your own expense",
+      "Personal Expenses: Snacks, souvenirs, beverages, laundry (recommended IDR 500,000 per person)",
+      "Tips: For drivers and guides (at your discretion)",
+      "Optional Activities: Horse ride at Mount Bromo (IDR 150,000–350,000), Ijen Ojek Trolley Service"
     ],
 
     itinerary: [
       {
-        title: "Day 1: Arrival & Preparation",
-        duration: "8 hours",
-        description: "Begin your East Java adventure with pickup from Surabaya and travel to Bondowoso. Enjoy lunch en route and check into your accommodation. Complete medical checkup required for Ijen trek and enjoy dinner.",
+        title: "Day 1: Arrival in Surabaya and Journey to Bondowoso",
+        duration: "Full day",
+        description: "Your exciting Bromo and Ijen adventure begins with a warm welcome at Surabaya Airport. We'll pick you up (best before noon) and start our scenic 5-hour drive to Bondowoso. Along the way, we'll stop at a local restaurant in Probolinggo for lunch at your own expense. After arriving at hotel in Bondowoso, take some time to relax and settle in. Enjoy a delicious dinner and rest up for the next day's adventure.",
         highlights: [
-          "12:00 PM - Pickup from Surabaya",
-          "01:00 PM - Lunch break", 
-          "05:00 PM - Check-in accommodation",
-          "06:00 PM - Medical checkup for Ijen trek",
-          "06:30 PM - Dinner"
-        ]
+          "Afternoon - Stop for lunch at a local restaurant (own expense)",
+          "17:00 - Check in hotel, and take a rest",
+          "19:00 - Dinner included"
+        ],
+        accommodation: "Riverside Homestay - Bondowoso City",
+        meals: "Dinner"
       },
       {
-        title: "Day 2: Ijen Crater & Papuma Beach",
-        duration: "20 hours",
-        description: "Experience the magical blue flames of Ijen Crater in the early morning, observe sulfur miners at work, and witness sunrise over the turquoise crater lake. Later, relax at the beautiful Papuma Beach and enjoy the sunset.",
+        title: "Day 2: Ijen Crater Adventure and Papuma Beach Sunset",
+        duration: "Full day",
+        description: "Your day starts early at midnight with a drive to Paltuding, the base of Ijen Crater. After about 1.5 hours on the road, you'll begin your 1-1.5 hour trek to the crater rim. Upon reaching the rim, you'll be greeted by the breathtaking sight of the 200-meter deep turquoise sulfuric lake. Witness the extraordinary work of sulfur miners. After enjoying the sunrise at Ijen Crater, we stop at the Malabar Coffee Plantation for a refreshing coffee break. In the afternoon, we journey to Jember City, then set off for Papuma Beach to witness stunning sunset views.",
         highlights: [
-          "12:00 AM - Depart for Ijen Crater",
-          "02:00 AM - Ijen blue fire observation",
-          "04:00 AM - Sulfur miner observation",
-          "05:00 AM - Ijen crater sunrise viewing",
-          "04:00 PM - Papuma Beach sunset",
-          "08:00 PM - Check-in Jember accommodation"
-        ]
+          "00:00 - Depart from hotel to Mount Ijen area",
+          "02:30 - Start trekking to Ijen Crater from Paltuding",
+          "Morning - Enjoy sunrise views and observe sulfur miners",
+          "Morning - Coffee break at Malabar Coffee Plantation",
+          "08:00 - Return to hotel for shower and check-out",
+          "12:00 - Lunch included",
+          "16:00 - Explore Papuma Beach",
+          "19:00 - Check in Doho Homestay. Take a rest"
+        ],
+        accommodation: "Doho Homestay - Jember City",
+        meals: "Breakfast, Lunch"
       },
       {
-        title: "Day 3: Tumpak Sewu Waterfall",
-        duration: "16 hours",
-        description: "Early morning departure to the magnificent Tumpak Sewu Waterfall. Trek to the waterfall base and experience one of Indonesia's most spectacular waterfalls surrounded by lush tropical vegetation.",
+        title: "Day 3: Tumpak Sewu Waterfall and Journey to Bromo",
+        duration: "Full day",
+        description: "Our journey begins early at 4:00 AM as we check out and head to Tumpak Sewu Waterfall, one of the most beautiful waterfalls in Java. Known for its unique half-circle formation, the waterfall consists of multiple mini-waterfalls cascading from a height of around 300 meters. A short, adventurous trek takes you across rocks and streams to reach the waterfall. After exploring the falls, we will have lunch before continuing our journey to the Bromo area.",
         highlights: [
-          "03:30 AM - Depart for Tumpak Sewu",
-          "07:00 AM - Tumpak Sewu viewpoint",
-          "07:30 AM - Trek to waterfall base",
-          "01:00 PM - Travel to Cemoro Lawang",
-          "04:30 PM - Check-in accommodation"
-        ]
+          "03:30 - Check out from Doho Homestay and depart for Tumpak Sewu Waterfall",
+          "07:00 - Breakfast Included",
+          "07:30 - Explore Tumpak Sewu Waterfall (short, adventurous trek to base)",
+          "12:00 - Lunch included",
+          "13:00 - Transfer to hotel at Bromo",
+          "16:00 - Check in hotel and take a rest"
+        ],
+        accommodation: "Joglo Kecombrang Bromo - Bromo Area",
+        meals: "Breakfast, Lunch"
       },
       {
-        title: "Day 4: Mount Bromo Experience", 
-        duration: "14 hours",
-        description: "The highlight of your journey - witness the spectacular sunrise over Mount Bromo caldera. Explore the Whispering Sands, hike to Bromo crater, and return to Surabaya for your final night.",
+        title: "Day 4: Bromo Sunrise Adventure and Return to Surabaya",
+        duration: "Full day",
+        description: "Prepare for an early morning adventure starting at 2:00 AM as we set out for stargazing and a Milky Way view at Mount Bromo. As the first rays of dawn break, witness the spectacular sunrise over the Bromo landscape. After sunrise, we continue our journey on a thrilling 4WD ride over the vast Sand Sea to the Poten Temple. From here, you can either take a 3km hike or a pony ride to the base of Mount Bromo, where you will ascend 253 steps to reach the crater rim. After a morning filled with adventure, we continue our journey to Surabaya for an overnight stay.",
         highlights: [
-          "02:00 AM - Jeep pickup service",
-          "03:00 AM - Bromo stargazing",
-          "04:30 AM - Bromo sunrise viewpoint",
-          "07:00 AM - Whispering Sands exploration",
-          "08:00 AM - Bromo crater hiking",
-          "03:00 PM - Check-in Surabaya hotel"
-        ]
+          "02:00 - Depart from hotel to Bromo sunrise viewpoint by private Jeep for stargazing",
+          "03:30 - Witness sunrise over the Bromo landscape",
+          "Morning - 4WD ride across Sand Sea to Poten Temple, then optional 3km hike or pony ride to Bromo base and ascend 253 steps to crater rim",
+          "09:00 - Back to the hotel and having breakfast",
+          "12:00 - Transfer to hotel at Surabaya",
+          "15:00 - Check in hotel and take a rest"
+        ],
+        accommodation: "Holiday Inn Express Surabaya Centerpoint - Surabaya City",
+        meals: "Breakfast"
       },
       {
-        title: "Day 5: Departure",
-        duration: "3 hours", 
-        description: "Enjoy breakfast at your hotel, check out, and transfer to airport or station as needed. End of your unforgettable East Java adventure.",
+        title: "Day 5: Departure from Surabaya",
+        duration: "Half day",
+        description: "After breakfast, you will be transferred to Juanda International Airport for your flight back home, reflecting on your amazing adventure in East Java.",
         highlights: [
-          "08:00 AM - Breakfast",
-          "09:00 AM - Check-out",
-          "Transfer to airport/station (if needed)"
-        ]
+          "Morning - Breakfast included",
+          "Morning/Afternoon - Continue the journey to your hotel or Airport in Surabaya city. End of program"
+        ],
+        accommodation: null,
+        meals: "Breakfast"
+      }
+    ],
+
+    accommodation: [
+      {
+        day: 1,
+        name: "Riverside Homestay",
+        location: "Bondowoso City - Nature Retreat Homestay",
+        description: "A peaceful homestay with tropical gardens, a relaxing pool, and an open-air restaurant, ideal for winding down before or after your Ijen adventure.",
+        rating: 4.6,
+        facilities: ["Free Wifi", "Restaurant", "Air Conditioning", "Guest Service", "Toiletries", "Hairdryer"]
+      },
+      {
+        day: 2,
+        name: "Doho Homestay",
+        location: "Jember City, Garden Style Family Homestay",
+        description: "A cozy homestay with garden and pool ambience, perfect for couples or families visiting Papuma Beach and Tumpak Sewu Waterfall.",
+        rating: 4.6,
+        facilities: ["Free WiFi", "Outdoor Pool", "On-site Café", "Family-Friendly Rooms", "Tropical Garden Area", "Toiletries"]
+      },
+      {
+        day: 3,
+        name: "Joglo Kecombrang Bromo",
+        location: "Bromo Area, Javanese-Style Mountain Lodge",
+        description: "A charming lodge with traditional Javanese architecture, nestled in the cool mountain slopes of Bromo, offering scenic views and an authentic cultural atmosphere.",
+        rating: 4.6,
+        facilities: ["Free WiFi", "Hot Shower", "On-site Restaurant", "Mountain View Rooms", "Traditional Javanese Design", "Toiletries"]
+      },
+      {
+        day: 4,
+        name: "Holiday Inn Express Surabaya Centerpoint",
+        location: "Surabaya City, Modern City Hotel",
+        description: "A modern hotel in the heart of Surabaya, offering easy access to malls, restaurants, and entertainment, ideal for business and leisure travelers.",
+        rating: 4.5,
+        facilities: ["Free WiFi", "24-Hour Front Desk", "Breakfast Included", "Fitness Center", "Business Facilities", "Hairdryer", "Toiletries"]
+      }
+    ],
+
+    faq: [
+      {
+        question: "What kind of tours do you offer?",
+        answer: "All tour packages are private and structured as all-inclusive packages. We provide personalized experiences with dedicated guides and transportation."
+      },
+      {
+        question: "Can I customize my tour?",
+        answer: "Yes, minor adjustments and \"micro-tweaks\" to the itinerary are allowed. However, major detours from the planned route are discouraged to ensure the best experience and safety."
+      },
+      {
+        question: "How do I confirm my booking?",
+        answer: "A deposit of 20% is required to confirm your booking. The remaining balance must be paid 3 days before the tour begins. If you book less than 24 hours in advance, 100% upfront payment is required."
+      },
+      {
+        question: "What payment methods are accepted?",
+        answer: "Payment can be made via cash, bank transfer, or other Wise-approved channels. We accept major credit cards, bank transfers, and cash (pre-approved)."
+      },
+      {
+        question: "What happens if the weather is bad?",
+        answer: "JVTO continuously monitors weather conditions. For safety reasons, we may adjust itineraries during extreme weather (heavy rain, thick fog). Tours typically continue in light rain."
+      },
+      {
+        question: "Is this tour suitable for children or elderly people?",
+        answer: "This tour requires good physical fitness due to early starts, hiking, and potentially challenging conditions. Children under 12 and elderly individuals with mobility issues should carefully consider their abilities."
+      },
+      {
+        question: "Do you cater to dietary restrictions?",
+        answer: "Yes, we can accommodate most dietary requirements including vegetarian, vegan, halal, and basic food allergies. Please inform us of any dietary restrictions during booking."
+      },
+      {
+        question: "What about transportation and group size?",
+        answer: "Transportation is by private air-conditioned vehicle (MPV for 1-3 guests, Toyota Hiace Van for 4-11 guests) with professional driver. For Bromo, we use private 4WD jeeps."
+      },
+      {
+        question: "What languages do the guides speak?",
+        answer: "All our guides are experienced and speak English fluently. For groups of 2-3 guests, you'll have a driver-guide. For 4+ guests, we provide separate local guides at each main destination."
+      },
+      {
+        question: "What is your safety record?",
+        answer: "The company has a 100% safety record. The team consists of dedicated and respectful local crew who provide extra care for children. Immediate assistance is provided in case of medical issues."
       }
     ],
     
@@ -179,13 +270,13 @@ Throughout the tour, enjoy comfortable accommodations, private transportation, a
 
   const calculatePrice = (travelers: number) => {
     const tier = tourData.pricingTiers.find(tier => {
-      if (tier.groupSize === "1 person" && travelers === 1) return true;
-      if (tier.groupSize === "2 people" && travelers === 2) return true;
-      if (tier.groupSize === "3 people" && travelers === 3) return true;
-      if (tier.groupSize === "4-5 people" && travelers >= 4 && travelers <= 5) return true;
-      if (tier.groupSize === "6-7 people" && travelers >= 6 && travelers <= 7) return true;
-      if (tier.groupSize === "8-10 people" && travelers >= 8 && travelers <= 10) return true;
-      if (tier.groupSize === "11+ people" && travelers >= 11) return true;
+      if (tier.groupSize === "Solo Traveler" && travelers === 1) return true;
+      if (tier.groupSize === "2 Pax" && travelers === 2) return true;
+      if (tier.groupSize === "3 Pax" && travelers === 3) return true;
+      if (tier.groupSize === "4 - 5 Pax" && travelers >= 4 && travelers <= 5) return true;
+      if (tier.groupSize === "6 - 7 Pax" && travelers >= 6 && travelers <= 7) return true;
+      if (tier.groupSize === "8 - 10 Pax" && travelers >= 8 && travelers <= 10) return true;
+      if (tier.groupSize === "11 + Pax" && travelers >= 11) return true;
       return false;
     });
     return tier ? tier.pricePerPerson : tourData.basePrice;
@@ -224,7 +315,7 @@ Throughout the tour, enjoy comfortable accommodations, private transportation, a
               </Button>
             </Link>
             <div className="text-sm text-muted-foreground">
-              East Java Tours
+              {tourData.operatorName}
             </div>
           </div>
         </div>
@@ -289,14 +380,32 @@ Throughout the tour, enjoy comfortable accommodations, private transportation, a
                   </AccordionContent>
                 </AccordionItem>
 
+                <AccordionItem value="accommodation" className="border rounded-lg">
+                  <AccordionTrigger className="px-4 py-3 hover:no-underline">
+                    <span className="font-semibold">🏨 Accommodation</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-4 pb-4">
+                    <AccommodationCard accommodations={tourData.accommodation} />
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="faq" className="border rounded-lg">
+                  <AccordionTrigger className="px-4 py-3 hover:no-underline">
+                    <span className="font-semibold">❓ FAQ</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-4 pb-4">
+                    <FAQSection faqs={tourData.faq} />
+                  </AccordionContent>
+                </AccordionItem>
+
                 <AccordionItem value="reviews" className="border rounded-lg">
                   <AccordionTrigger className="px-4 py-3 hover:no-underline">
                     <span className="font-semibold">⭐ Reviews & Ratings</span>
                   </AccordionTrigger>
                   <AccordionContent className="px-4 pb-4">
                     <ReviewsSection
-                      averageRating={4.8}
-                      totalReviews={127}
+                      averageRating={tourData.rating}
+                      totalReviews={tourData.reviewCount}
                       ratingDistribution={{ 5: 89, 4: 25, 3: 8, 2: 3, 1: 2 }}
                       reviews={[
                         {
@@ -332,9 +441,11 @@ Throughout the tour, enjoy comfortable accommodations, private transportation, a
                   included={tourData.included}
                   notIncluded={tourData.notIncluded}
                 />
+                <AccommodationCard accommodations={tourData.accommodation} />
+                <FAQSection faqs={tourData.faq} />
                 <ReviewsSection
-                  averageRating={4.8}
-                  totalReviews={127}
+                  averageRating={tourData.rating}
+                  totalReviews={tourData.reviewCount}
                   ratingDistribution={{ 5: 89, 4: 25, 3: 8, 2: 3, 1: 2 }}
                   reviews={[
                     {
