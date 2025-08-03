@@ -12,6 +12,10 @@ import TourMap from "@/components/TourMap";
 import SEOHead from "@/components/SEOHead";
 import AccommodationCard from "@/components/AccommodationCard";
 import FAQSection from "@/components/FAQSection";
+import TourExperiencePhilosophy from "@/components/TourExperiencePhilosophy";
+import BookingProcessSection from "@/components/BookingProcessSection";
+import VehicleAllocationSection from "@/components/VehicleAllocationSection";
+import EnhancedPolicySection from "@/components/EnhancedPolicySection";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowLeft } from "lucide-react";
@@ -377,11 +381,20 @@ const EastJavaTour = () => {
               highlights={tourData.highlights}
             />
 
+            {/* Tour Experience Philosophy */}
+            <TourExperiencePhilosophy />
+
             {/* Tour Map */}
             <TourMap 
               locations={tourData.locations} 
               title="East Java Tour Route"
             />
+
+            {/* Booking Process Section */}
+            <BookingProcessSection />
+
+            {/* Vehicle Allocation & Group Benefits */}
+            <VehicleAllocationSection />
 
             {/* Mobile Accordion Layout for key sections */}
             {isMobile ? (
@@ -413,6 +426,15 @@ const EastJavaTour = () => {
                   </AccordionTrigger>
                   <AccordionContent className="px-4 pb-4">
                     <AccommodationCard accommodations={tourData.accommodation} />
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="policies" className="border rounded-lg">
+                  <AccordionTrigger className="px-4 py-3 hover:no-underline">
+                    <span className="font-semibold">🛡️ Policies & Safety</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-4 pb-4">
+                    <EnhancedPolicySection />
                   </AccordionContent>
                 </AccordionItem>
 
@@ -469,6 +491,7 @@ const EastJavaTour = () => {
                   notIncluded={tourData.notIncluded}
                 />
                 <AccommodationCard accommodations={tourData.accommodation} />
+                <EnhancedPolicySection />
                 <FAQSection faqs={tourData.faq} />
                 <ReviewsSection
                   averageRating={tourData.rating}
