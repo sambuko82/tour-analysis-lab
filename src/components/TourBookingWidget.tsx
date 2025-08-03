@@ -44,8 +44,8 @@ const TourBookingWidget = ({
 
   return (
     <Card className="sticky top-6 shadow-card animate-fade-in">
-      <CardHeader>
-        <CardTitle className="text-xl font-semibold text-foreground">Book This Tour</CardTitle>
+      <CardHeader className="pb-4">
+        <CardTitle className="text-lg md:text-xl font-semibold text-foreground">💳 Book This Tour</CardTitle>
         <div className="space-y-3">
           <div className="text-2xl font-bold text-primary">
             {formatCurrency(basePrice)}
@@ -178,9 +178,12 @@ const TourBookingWidget = ({
           </div>
         </div>
 
-        {/* Book Now Button */}
-        <Button className="w-full" size="lg">
-          Check Availability
+        {/* Enhanced Book Now Button for mobile */}
+        <Button 
+          className="w-full bg-gradient-to-r from-primary to-primary-hover hover:shadow-cta transition-all duration-300 touch-manipulation min-h-[52px] text-base font-bold" 
+          size="lg"
+        >
+          🗓️ Check Availability
         </Button>
 
         {/* Trust Badges */}

@@ -7,6 +7,7 @@ import InclusionsCard from "@/components/InclusionsCard";
 import ReviewsSection from "@/components/ReviewsSection";
 import RatingDisplay from "@/components/RatingDisplay";
 import MobileStickyFooter from "@/components/MobileStickyFooter";
+import MobileNavigation from "@/components/MobileNavigation";
 import TourMap from "@/components/TourMap";
 import SEOHead from "@/components/SEOHead";
 import AccommodationCard from "@/components/AccommodationCard";
@@ -289,6 +290,24 @@ const EastJavaTour = () => {
     });
   };
 
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: tourData.title,
+        text: `Check out this amazing tour: ${tourData.title}`,
+        url: window.location.href,
+      });
+    } else {
+      navigator.clipboard.writeText(window.location.href);
+      // You could add a toast notification here
+    }
+  };
+
+  const handleSave = () => {
+    // Implement save/wishlist functionality
+    console.log('Save tour functionality');
+  };
+
   return (
     <div className="min-h-screen bg-background">
       {/* SEO Head Component */}
@@ -304,8 +323,16 @@ const EastJavaTour = () => {
         operatorName={tourData.operatorName}
         images={tourData.images}
       />
-      {/* Navigation Header */}
-      <div className="bg-card border-b sticky top-0 z-50">
+      
+      {/* Enhanced Mobile Navigation */}
+      <MobileNavigation 
+        onShare={handleShare}
+        onSave={handleSave}
+        operatorName={tourData.operatorName}
+      />
+
+      {/* Desktop Navigation Header */}
+      <div className="bg-card border-b sticky top-0 z-40 hidden md:block">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             <Link to="/">
@@ -321,11 +348,11 @@ const EastJavaTour = () => {
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="container mx-auto px-4 py-6">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Left Column - Primary Content */}
-          <div className="lg:col-span-2 space-y-6">
+      {/* Main Content with enhanced mobile spacing */}
+      <div className="container mx-auto px-4 py-4 md:py-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
+          {/* Left Column - Primary Content with improved mobile layout */}
+          <div className="lg:col-span-2 space-y-4 md:space-y-6">
             {/* Hero Section */}
             <TourHero
               title={tourData.title}

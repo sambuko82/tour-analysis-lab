@@ -54,10 +54,10 @@ const ImageGallery = () => {
 
   return (
     <>
-      <div className="space-y-4 animate-fade-in">
-        {/* Main Image */}
+      <div className="space-y-3 md:space-y-4 animate-fade-in">
+        {/* Enhanced main image with mobile-optimized height and touch targets */}
         <div 
-          className="relative h-96 lg:h-[500px] rounded-xl overflow-hidden cursor-pointer group shadow-card hover:shadow-lg transition-all duration-300"
+          className="relative h-64 md:h-96 lg:h-[500px] rounded-xl overflow-hidden cursor-pointer group shadow-card hover:shadow-lg transition-all duration-300"
           onClick={() => openLightbox(0)}
         >
           <img
@@ -67,19 +67,26 @@ const ImageGallery = () => {
           />
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
             <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <span className="bg-black/50 text-white px-4 py-2 rounded-lg font-medium">
-                View all {images.length} photos
+              <span className="bg-black/70 text-white px-4 py-3 md:px-6 md:py-3 rounded-lg font-medium text-sm md:text-base backdrop-blur-sm">
+                📸 View all {images.length} photos
               </span>
             </div>
           </div>
+          
+          {/* Mobile-prominent photo count badge */}
+          <div className="absolute top-4 right-4">
+            <span className="bg-black/70 text-white px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm">
+              {images.length} photos
+            </span>
+          </div>
         </div>
 
-        {/* Thumbnail Grid */}
-        <div className="grid grid-cols-4 gap-2 lg:gap-4">
+        {/* Enhanced thumbnail grid with better mobile touch targets */}
+        <div className="grid grid-cols-4 gap-2 md:gap-3 lg:gap-4">
           {images.slice(1, 5).map((image, index) => (
             <div
               key={index + 1}
-              className="relative h-20 lg:h-24 rounded-lg overflow-hidden cursor-pointer group shadow-sm hover:shadow-md transition-all duration-300"
+              className="relative h-24 md:h-28 lg:h-32 rounded-lg overflow-hidden cursor-pointer group shadow-sm hover:shadow-md transition-all duration-300 touch-manipulation"
               onClick={() => openLightbox(index + 1)}
             >
               <img
@@ -87,7 +94,13 @@ const ImageGallery = () => {
                 alt={image.alt}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-8 h-8 bg-white/90 rounded-full flex items-center justify-center">
+                    <span className="text-lg">🔍</span>
+                  </div>
+                </div>
+              </div>
             </div>
           ))}
         </div>
