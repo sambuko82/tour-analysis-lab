@@ -25,6 +25,29 @@ const BookingProcessSection = () => {
     bgColor: "bg-green-100 dark:bg-green-900/20",
     textColor: "text-green-800 dark:text-green-200"
   }];
-  return;
+  return (
+    <section className="py-12 md:py-16">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl font-bold text-foreground mb-4">How It Works</h2>
+        <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          Our simple booking process makes planning your adventure easy and stress-free.
+        </p>
+      </div>
+      
+      <div className="max-w-4xl mx-auto">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          {steps.map((step, index) => (
+            <div key={index} className="text-center">
+              <div className={`w-16 h-16 mx-auto mb-4 rounded-full ${step.bgColor} ${step.textColor} flex items-center justify-center`}>
+                {step.icon}
+              </div>
+              <h3 className="text-xl font-semibold text-foreground mb-2">{step.title}</h3>
+              <p className="text-muted-foreground text-sm">{step.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 export default BookingProcessSection;

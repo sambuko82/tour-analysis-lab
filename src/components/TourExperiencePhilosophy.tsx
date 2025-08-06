@@ -1,9 +1,15 @@
-import { Star, CheckCircle, Clock, AlertTriangle, CalendarCheck, CreditCard, MapPin, PartyPopper } from "lucide-react";
+import { Star, CheckCircle, Clock, AlertTriangle, CalendarCheck, CreditCard, MapPin, PartyPopper, Cross } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 const TourExperiencePhilosophy = () => {
   return <section className="py-12 md:py-16">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-foreground mb-4">The JVTO Experience</h2>
+        <h2 className="text-3xl font-bold mb-4 flex items-center justify-center gap-2">
+          <Cross className="w-8 h-8 text-red-600 animate-pulse" />
+          <span className="bg-gradient-to-r from-red-500 to-yellow-500 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(239,68,68,0.5)]">
+            NEW: Ijen Health Certificate Included!
+          </span>
+          <Cross className="w-8 h-8 text-red-600 animate-pulse" />
+        </h2>
         <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
           We believe in providing a seamless, high-quality journey from start to finish. Our model is built on core principles to guarantee your comfort and safety.
         </p>
