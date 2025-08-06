@@ -12,7 +12,7 @@ import TourMap from "@/components/TourMap";
 import SEOHead from "@/components/SEOHead";
 import AccommodationCard from "@/components/AccommodationCard";
 import FAQSection from "@/components/FAQSection";
-import HealthCertificateSection from "@/components/HealthCertificateSection";
+import TourExperiencePhilosophy from "@/components/TourExperiencePhilosophy";
 import BookingProcessSection from "@/components/BookingProcessSection";
 import VehicleAllocationSection from "@/components/VehicleAllocationSection";
 import EnhancedPolicySection from "@/components/EnhancedPolicySection";
@@ -381,8 +381,8 @@ const EastJavaTour = () => {
               highlights={tourData.highlights}
             />
 
-            {/* Health Certificate Section */}
-            <HealthCertificateSection />
+            {/* Tour Experience Philosophy */}
+            <TourExperiencePhilosophy />
 
             {/* Tour Map */}
             <TourMap 
