@@ -15,7 +15,7 @@ const TourExperiencePhilosophy = () => {
           </div>
           <h3 className="text-2xl font-bold text-foreground mb-3">Reserve Now &amp; Pay Later</h3>
           <p className="text-muted-foreground">
-            Every tour is a private package for you and your group. This ensures personalized attention, flexibility, and a journey tailored to your pace.
+            Our flexible booking model makes planning your trip easy and secure. Here's how it works.
           </p>
         </div>
         
