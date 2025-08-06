@@ -1,4 +1,4 @@
-import { Star, CheckCircle, Clock, AlertTriangle } from "lucide-react";
+import { Star, CheckCircle, Clock, AlertTriangle, CalendarCheck, CreditCard, MapPin, PartyPopper } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 const TourExperiencePhilosophy = () => {
   return <section className="py-12 md:py-16">
@@ -15,9 +15,60 @@ const TourExperiencePhilosophy = () => {
             <Star className="w-12 h-12" />
           </div>
           <h3 className="text-2xl font-bold text-foreground mb-3">Reserve Now &amp; Pay Later</h3>
-          <p className="text-muted-foreground">
+          <p className="text-muted-foreground mb-4">
             Our flexible booking model makes planning your trip easy and secure. Here's how it works.
           </p>
+          
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="booking-process">
+              <AccordionTrigger className="flex items-center text-left hover:no-underline">
+                <div className="flex items-center">
+                  <CalendarCheck className="w-5 h-5 text-primary mr-2" />
+                  <span className="font-semibold">How It Works</span>
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="pt-4">
+                <ol className="space-y-4">
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 w-8 h-8 bg-yellow-100 dark:bg-yellow-900/20 text-yellow-800 dark:text-yellow-200 font-bold rounded-full flex items-center justify-center mr-3">
+                      <MapPin className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">Find Your Experience</h4>
+                      <p className="text-muted-foreground text-sm">Choose your ideal tour, knowing you can secure your spot without being locked in.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 w-8 h-8 bg-orange-100 dark:bg-orange-900/20 text-orange-800 dark:text-orange-200 font-bold rounded-full flex items-center justify-center mr-3">
+                      <CalendarCheck className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">Make a Reservation</h4>
+                      <p className="text-muted-foreground text-sm">Pay a small 20% deposit to reserve your spot and lock in your price.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 w-8 h-8 bg-red-100 dark:bg-red-900/20 text-red-800 dark:text-red-200 font-bold rounded-full flex items-center justify-center mr-3">
+                      <CreditCard className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">Choose When to Pay</h4>
+                      <p className="text-muted-foreground text-sm">Pay the final balance anytime up to 3 days before your tour begins.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 w-8 h-8 bg-green-100 dark:bg-green-900/20 text-green-800 dark:text-green-200 font-bold rounded-full flex items-center justify-center mr-3">
+                      <PartyPopper className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">Enjoy Your Experience</h4>
+                      <p className="text-muted-foreground text-sm">You're all set! Have an amazing, hassle-free adventure.</p>
+                    </div>
+                  </li>
+                </ol>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
         
         <div className="bg-card p-8 rounded-2xl shadow-card transform hover:scale-105 transition-transform duration-300 border border-border">
