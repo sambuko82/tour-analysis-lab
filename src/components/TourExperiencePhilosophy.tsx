@@ -1,8 +1,14 @@
-import { Star, CheckCircle } from "lucide-react";
+import { Star, CheckCircle, Shield } from "lucide-react";
 const TourExperiencePhilosophy = () => {
   return <section className="py-12 md:py-16">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-foreground mb-4">NEW: Ijen Health Certificate Included!</h2>
+        <h2 className="text-3xl font-bold text-foreground mb-4 flex items-center justify-center gap-3 animate-pulse">
+          <Shield className="w-8 h-8 text-primary drop-shadow-[0_0_15px_hsl(var(--primary))]" />
+          <span className="drop-shadow-[0_0_10px_hsl(var(--primary))] text-shadow-glow">
+            NEW: Ijen Health Certificate Included!
+          </span>
+          <Shield className="w-8 h-8 text-primary drop-shadow-[0_0_15px_hsl(var(--primary))]" />
+        </h2>
         <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
           We believe in providing a seamless, high-quality journey from start to finish. Our model is built on core principles to guarantee your comfort and safety.
         </p>
