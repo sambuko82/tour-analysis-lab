@@ -1,8 +1,6 @@
 import { Star, CheckCircle } from "lucide-react";
-
 const TourExperiencePhilosophy = () => {
-  return (
-    <section className="py-12 md:py-16">
+  return <section className="py-12 md:py-16">
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold text-foreground mb-4">The JVTO Experience</h2>
         <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -15,7 +13,7 @@ const TourExperiencePhilosophy = () => {
           <div className="text-5xl mb-4 text-primary">
             <Star className="w-12 h-12" />
           </div>
-          <h3 className="text-2xl font-bold text-foreground mb-3">Exclusively Private Tours</h3>
+          <h3 className="text-2xl font-bold text-foreground mb-3">Reserve Now &amp; Pay Later</h3>
           <p className="text-muted-foreground">
             Every tour is a private package for you and your group. This ensures personalized attention, flexibility, and a journey tailored to your pace.
           </p>
@@ -31,8 +29,6 @@ const TourExperiencePhilosophy = () => {
           </p>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default TourExperiencePhilosophy;
