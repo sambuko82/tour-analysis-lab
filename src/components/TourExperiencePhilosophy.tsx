@@ -2,7 +2,7 @@ import { Star, CheckCircle } from "lucide-react";
 const TourExperiencePhilosophy = () => {
   return <section className="py-12 md:py-16">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-foreground mb-4">To enhance our comprehensive promise, the mandatory Ijen medical check-up is now included in your package price. Our medical team will come to your hotel for a hassle-free check-up.</h2>
+        <h2 className="text-3xl font-bold text-foreground mb-4">NEW: Ijen Health Certificate Included!</h2>
         <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
           We believe in providing a seamless, high-quality journey from start to finish. Our model is built on core principles to guarantee your comfort and safety.
         </p>
