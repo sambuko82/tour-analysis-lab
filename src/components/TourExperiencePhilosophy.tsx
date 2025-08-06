@@ -23,7 +23,7 @@ const TourExperiencePhilosophy = () => {
           <div className="text-5xl mb-4 text-success">
             <CheckCircle className="w-12 h-12" />
           </div>
-          <h3 className="text-2xl font-bold text-foreground mb-3">Truly Comprehensive</h3>
+          <h3 className="text-2xl font-bold text-foreground mb-3">Free Cancellation</h3>
           <p className="text-muted-foreground">
             From private transport and quality hotels to entrance fees, guides, and even the Ijen medical check-up, we've got it covered. No hidden fees, no logistical headaches.
           </p>
