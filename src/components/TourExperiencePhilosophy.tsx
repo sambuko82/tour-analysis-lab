@@ -25,7 +25,7 @@ const TourExperiencePhilosophy = () => {
           </div>
           <h3 className="text-2xl font-bold text-foreground mb-3">Free Cancellation</h3>
           <p className="text-muted-foreground">
-            From private transport and quality hotels to entrance fees, guides, and even the Ijen medical check-up, we've got it covered. No hidden fees, no logistical headaches.
+            For a full refund of your deposit, you must cancel at least 48 hours (2 days) before the tour's start time.
           </p>
         </div>
       </div>
