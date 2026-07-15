@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "sdk_version": "0.22.2",
+  "path": "/functions/v1/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "east-java-tour-mcp",
+      "version": "0.1.0",
+      "title": "East Java Tour MCP"
+    },
+    "tools": [
+      {
+        "name": "get_tour_overview",
+        "title": "Get tour overview",
+        "description": "Return the East Java 5D4N tour overview: title, location, duration, rating, operator, currency, base price, and highlights.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_itinerary",
+        "title": "Get tour itinerary",
+        "description": "Return the day-by-day itinerary for the East Java 5D4N tour.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_pricing",
+        "title": "Get tour pricing",
+        "description": "Return the full per-person pricing tier table for the East Java 5D4N tour, and optionally quote a price for a specific group size.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "travelers": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50,
+              "description": "Optional group size. If provided, also returns the matching tier and total price."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_inclusions",
+        "title": "Get tour inclusions",
+        "description": "Return what is included and not included in the East Java 5D4N tour price.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_faq",
+        "title": "Get tour FAQ",
+        "description": "Return frequently asked questions about the East Java tour. Optionally filter by a keyword that must appear in the question or answer.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "keyword": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Optional case-insensitive keyword to filter FAQ entries."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
